@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.AddressDAO">
+	<resultMap type="Address" id="ad">
+		<id property="id" column="eid" />
+		<result property="city" column="ecity" />
+		<collection property="addresses" ofType="Address">
+			<id property="id" column="aid" />
+			<result property="city" column="acity" />
+		</collection>
+	</resultMap>
+	<select id="selectALL" resultMap="ad">
+
+		select e.id eid,e.city ecity ,a.id aid,a.city acity from t_address e
+		inner join t_address a on e.id=a.parentid
+
+
+	</select>
+</mapper>

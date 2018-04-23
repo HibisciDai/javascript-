@@ -1,0 +1,74 @@
+日期插件
+1.引入datepicker插件相关的js文件和css文件
+       直接将文件夹引入，导入WdatePicker.js即可
+   <script type="text/javascript" src="js文件路径"> </script》
+2.在input增加class='Wdate'，绑定单击事件，函数名 WatePicker()
+   <input class="Wdate" id="dt" type="text" onclick="WdatePicker()" />
+3.可控参数：
+{
+   dateFmt:"yyyy年MM月dd日 HH:mm:ss ", //显示的日期格式
+   readOnly:true,//input输入框不可改
+   isShowWeek:true//显示周数
+}
+*将json对象传入WdatePicker参数
+放大镜插件
+    1.引入放大镜插件的js和css文件
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/js/bigger/jquery.jqzoom.css" type="text/css">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/bigger/jquery.jqzoom-core.js"></script>
+    2.<a href="image/d2.jpg" id="mg1">
+    <img  src="image/s2.jpg">
+    </a>
+    3.通过jquery代码添加放大镜效果
+     $(function(){
+      //添加放大镜效果
+      $("#mg1").jqzoom();
+      });
+     4.可选参数：
+      {
+          zoomWidth:600,
+          zoomHeight:400
+       }
+表单验证插件
+      1.引入相关的js文件
+      2.对form表单添加validate方法
+          $("form").validate({
+              rules:{
+                    name:属性值:{规则},
+                    } 
+               messages:{
+                   验证失败后显示文字
+              }
+            })
+          规则：
+         $("#fm").validate({
+           rules:{
+                   username:{required:true,minlength:6},
+                   password:{required:true,minlength:6},
+                   repassword:{required:true,equalTo:"#pwd"},
+                   email:{required:true,email:true}      
+           },
+           messages:{
+              username:{required:"该用户名是必填项",minlength:"您的用户长度不为6"}    
+           }
+        required: "该内容不可以为空", 
+        remote: "请修正该字段",
+        email: "请输入正确格式的电子邮件",
+        url: "请输入合法的网址",
+        date: "请输入合法的日期",
+        dateISO: "请输入合法的日期 (ISO).",
+        number: "请输入合法的数字",
+        digits: "只能输入整数",
+        creditcard: "请输入合法的信用卡号",
+        equalTo: "请再次输入相同的值",
+        accept: "请输入拥有合法后缀名的字符串",
+        maxlength: jQuery.validator.format("请输入一个长度最多是 {0} 的字符串"),
+        minlength: jQuery.validator.format("请输入一个长度最少是 {0} 的字符串"),
+        rangelength: jQuery.validator.format("请输入一个长度介于 {0} 和 {1} 之间的字符串"),
+        range: jQuery.validator.format("请输入一个介于 {0} 和 {1} 之间的值"),
+        max: jQuery.validator.format("请输入一个最大为 {0} 的值"),
+        min: jQuery.validator.format("请输入一个最小为 {0} 的值")
+ 改变提示信息颜色        
+ <style type="text/css">
+            label.error{color: red;}
+ </style>     
